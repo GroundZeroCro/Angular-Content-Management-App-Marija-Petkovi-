@@ -1,15 +1,15 @@
 <mat-toolbar color="primary">
 
   <mat-toolbar-row>
-    <mat-button-toggle-group #languageGroup="matButtonToggleGroup">
-      <mat-button-toggle value="{{croatianKeyValue}}">Croatian</mat-button-toggle>
-      <mat-button-toggle value="{{italianKeyValue}}">Italian</mat-button-toggle>
-      <mat-button-toggle value="{{spanishKeyValue}}">Spanish</mat-button-toggle>
+    <mat-button-toggle-group #languageGroup="matButtonToggleGroup" value="{{croatianKeyValue}}">
+      <mat-button-toggle value="{{croatianKeyValue}}" (click)="setContent()">Croatian</mat-button-toggle>
+      <mat-button-toggle value="{{italianKeyValue}}" (click)="setContent()">Italian</mat-button-toggle>
+      <mat-button-toggle value="{{spanishKeyValue}}" (click)="setContent()">Spanish</mat-button-toggle>
     </mat-button-toggle-group>
     <span class="app-spacer"></span>
-    <mat-button-toggle-group #typeGroup="matButtonToggleGroup" >
-      <mat-button-toggle value="{{prayersKeyValue}}">Prayers</mat-button-toggle>
-      <mat-button-toggle value="{{thoughtsKeyValue}}">Thoughts</mat-button-toggle>
+    <mat-button-toggle-group #typeGroup="matButtonToggleGroup" value="{{prayersKeyValue}}">
+      <mat-button-toggle value="{{prayersKeyValue}}" (click)="setContent()">Prayers</mat-button-toggle>
+      <mat-button-toggle value="{{thoughtsKeyValue}}" (click)="setContent()">Thoughts</mat-button-toggle>
     </mat-button-toggle-group>
   </mat-toolbar-row>
 </mat-toolbar>

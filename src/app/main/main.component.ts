@@ -1,12 +1,14 @@
-import { Component} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {environment} from '../../environments/environment';
+import {MainService} from './main.service';
+import {MatButtonToggleGroup} from '@angular/material';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.sass']
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit {
 
   croatianKeyValue = environment.firebase_croatian_key_prefix;
   italianKeyValue = environment.firebase_italian_key_prefix;
@@ -15,5 +17,18 @@ export class MainComponent {
   prayersKeyValue = environment.firebase_prayers_key_suffix;
   thoughtsKeyValue = environment.firebase_thoughts_key_suffix;
 
+  @ViewChild('languageGroup', {static: false}) languageGroup: MatButtonToggleGroup;
+  @ViewChild('typeGroup', {static: false}) typeGroup: MatButtonToggleGroup;
 
+  constructor(private mainService: MainService) {
+  }
+
+  setContent() {
+    console.log(this.languageGroup.value + this.typeGroup.value);
+    this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
+  }
+
+  ngAfterViewInit(): void {
+    this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
+  }
 }
