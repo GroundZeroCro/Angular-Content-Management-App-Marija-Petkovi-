@@ -8,11 +8,13 @@ import {MatCheckboxModule, MatIconModule, MatListModule, MatSidenavModule, MatTo
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
+import { ListedContentComponent } from './main/listed-content/listed-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    ListedContentComponent
   ],
   imports: [
     BrowserModule,

@@ -14,4 +14,6 @@ export class MainComponent {
 
   prayersKeyValue = environment.firebase_prayers_key_suffix;
   thoughtsKeyValue = environment.firebase_thoughts_key_suffix;
+
+
 }
