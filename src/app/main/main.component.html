@@ -7,11 +7,12 @@
       <mat-button-toggle value="{{spanishKeyValue}}" (click)="setContent()">Spanish</mat-button-toggle>
     </mat-button-toggle-group>
     <span class="app-spacer"></span>
+    {{languageGroup.value + typeGroup.value}}
+    <span class="app-spacer"></span>
     <mat-button-toggle-group #typeGroup="matButtonToggleGroup" value="{{prayersKeyValue}}">
       <mat-button-toggle value="{{prayersKeyValue}}" (click)="setContent()">Prayers</mat-button-toggle>
       <mat-button-toggle value="{{thoughtsKeyValue}}" (click)="setContent()">Thoughts</mat-button-toggle>
     </mat-button-toggle-group>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="example-selected-value">Selected value: {{languageGroup.value+typeGroup.value}}</div>
 <app-listed-content></app-listed-content>
