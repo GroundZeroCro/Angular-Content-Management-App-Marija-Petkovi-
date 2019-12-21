@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase_croatian_key_prefix: 'hr-',
+  firebase_italian_key_prefix: 'it-',
+  firebase_spanish_key_prefix: 'es-',
+  firebase_prayers_key_suffix: 'prayers',
+  firebase_thoughts_key_suffix: 'thoughts'
 };
 
 /*
