@@ -4,7 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCheckboxModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatCheckboxModule,
+  MatExpansionModule, MatFormFieldModule,
+  MatIconModule, MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
@@ -26,7 +34,11 @@ import { ListedContentComponent } from './main/listed-content/listed-content.com
     FormsModule,
     MatCheckboxModule,
     MatListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

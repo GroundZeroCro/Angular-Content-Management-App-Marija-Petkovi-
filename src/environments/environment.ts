@@ -8,7 +8,7 @@ export const environment = {
   firebase_italian_key_prefix: 'it-',
   firebase_spanish_key_prefix: 'es-',
   firebase_prayers_key_suffix: 'prayers',
-  firebase_thoughts_key_suffix: 'thoughts'
+  firebase_thoughts_key_suffix: 'thoughts',
 };
 
 /*

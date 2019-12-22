@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-listed-content',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListedContentComponent implements OnInit {
 
-  constructor() { }
+  panelOpenState = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
