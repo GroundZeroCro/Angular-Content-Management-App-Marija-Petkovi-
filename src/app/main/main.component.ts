@@ -1,4 +1,4 @@
-import {AfterContentChecked, Component, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {MainService} from './main.service';
 import {MatButtonToggleGroup} from '@angular/material';

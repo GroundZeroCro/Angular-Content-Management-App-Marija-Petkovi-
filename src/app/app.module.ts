@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  MatButtonModule,
   MatCheckboxModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
@@ -43,7 +44,8 @@ import {firebaseConfig} from '../environments/enviroment-firebase';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
