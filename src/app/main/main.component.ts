@@ -8,7 +8,7 @@ import {MatButtonToggleGroup} from '@angular/material';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.sass']
 })
-export class MainComponent implements AfterContentChecked {
+export class MainComponent {
 
   croatianKeyValue = environment.firebase_croatian_key_prefix;
   italianKeyValue = environment.firebase_italian_key_prefix;
@@ -26,9 +26,5 @@ export class MainComponent implements AfterContentChecked {
   setContent() {
     console.log(this.languageGroup.value + this.typeGroup.value);
     this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
-  }
-
-  ngAfterContentChecked(): void {
-    this.mainService.listedContentSubject.next(this.croatianKeyValue + this.prayersKeyValue);
   }
 }

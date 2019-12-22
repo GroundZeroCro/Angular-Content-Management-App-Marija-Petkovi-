@@ -1,18 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {FirebaseService} from './firebase.service';
 
 @Component({
   selector: 'app-listed-content',
   templateUrl: './listed-content.component.html',
   styleUrls: ['./listed-content.component.sass']
 })
-export class ListedContentComponent implements OnInit {
+export class ListedContentComponent {
 
   panelOpenState = false;
 
-  constructor() {
+  constructor(public firebaseService: FirebaseService) {
   }
-
-  ngOnInit() {
-  }
-
 }

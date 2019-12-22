@@ -10,7 +10,6 @@ export const environment = {
   firebase_prayers_key_suffix: 'prayers',
   firebase_thoughts_key_suffix: 'thoughts',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

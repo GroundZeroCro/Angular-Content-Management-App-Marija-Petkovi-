@@ -17,6 +17,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
 import { ListedContentComponent } from './main/listed-content/listed-content.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {firebaseConfig} from '../environments/enviroment-firebase';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { ListedContentComponent } from './main/listed-content/listed-content.com
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -38,7 +42,8 @@ import { ListedContentComponent } from './main/listed-content/listed-content.com
     MatTableModule,
     MatExpansionModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
