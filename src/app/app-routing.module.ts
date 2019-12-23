@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from './main/main.component';
+import {ListedContentComponent} from './listed-content/listed-content.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
+  {path: '', component: ListedContentComponent},
 ];
 
 @NgModule({

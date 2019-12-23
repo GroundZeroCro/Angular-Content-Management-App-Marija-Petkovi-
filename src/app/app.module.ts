@@ -15,18 +15,18 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { MainComponent } from './main/main.component';
 import {FormsModule} from '@angular/forms';
-import { ListedContentComponent } from './main/listed-content/listed-content.component';
+import { ListedContentComponent } from './listed-content/listed-content.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {firebaseConfig} from '../environments/enviroment-firebase';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    ListedContentComponent
+    ListedContentComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

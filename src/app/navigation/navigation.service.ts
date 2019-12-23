@@ -4,7 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MainService {
+export class NavigationService {
 
   listedContentSubject = new BehaviorSubject('');
 }

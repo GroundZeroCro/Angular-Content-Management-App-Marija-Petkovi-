@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {MainService} from '../main.service';
+import {NavigationService} from '../navigation/navigation.service';
 import {flatMap} from 'rxjs/operators';
 import {ItemModel} from './item.model';
 
@@ -15,7 +15,7 @@ export class FirebaseService {
 
   constructor(
     private firestore: AngularFirestore,
-    private mainService: MainService
+    private mainService: NavigationService
   ) {
     this.data$ = mainService.listedContentSubject.pipe(
       flatMap(value => this.firestore.collection(value !== '' ? value : 'hr-prayers').valueChanges() as Observable<ItemModel[]>)

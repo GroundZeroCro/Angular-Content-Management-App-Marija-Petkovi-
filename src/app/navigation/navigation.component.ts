@@ -1,14 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {MainService} from './main.service';
 import {MatButtonToggleGroup} from '@angular/material';
+import {NavigationService} from './navigation.service';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass']
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.sass']
 })
-export class MainComponent {
+export class NavigationComponent {
 
   croatianKeyValue = environment.firebase_croatian_key_prefix;
   italianKeyValue = environment.firebase_italian_key_prefix;
@@ -20,7 +20,7 @@ export class MainComponent {
   @ViewChild('languageGroup', {static: false}) languageGroup: MatButtonToggleGroup;
   @ViewChild('typeGroup', {static: false}) typeGroup: MatButtonToggleGroup;
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: NavigationService) {
   }
 
   setContent() {
