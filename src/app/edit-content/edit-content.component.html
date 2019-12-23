@@ -1,0 +1,27 @@
+<div class="example-container">
+
+  <mat-form-field>
+    <input matInput placeholder="Title" required [(ngModel)]="itemModel.title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Text" required [(ngModel)]="itemModel.text">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Type" required [(ngModel)]="itemModel.type">
+  </mat-form-field>
+
+  <form
+    class="example-container"
+    (ngSubmit)="onSubmit()">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+
+  <p>ID: {{itemModel.itemId}}  <br>TITLE:  {{itemModel.title}}  <br>TEXT:  {{itemModel.text}}
+    <br>TYPE:  {{itemModel.type}}</p>
+</div>

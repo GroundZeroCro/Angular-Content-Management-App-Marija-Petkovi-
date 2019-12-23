@@ -9,24 +9,26 @@ import {
   MatCheckboxModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
-  MatListModule,
+  MatListModule, MatRadioModule, MatSelectModule,
   MatSidenavModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ListedContentComponent } from './listed-content/listed-content.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {firebaseConfig} from '../environments/enviroment-firebase';
 import { NavigationComponent } from './navigation/navigation.component';
+import { EditContentComponent } from './edit-content/edit-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListedContentComponent,
-    NavigationComponent
+    NavigationComponent,
+    EditContentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,10 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatFormFieldModule,
     MatInputModule,
     AngularFirestoreModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

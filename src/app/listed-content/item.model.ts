@@ -3,4 +3,5 @@ export class ItemModel {
   title = '';
   text = '';
   itemId = '';
+  type = 0;
 }
