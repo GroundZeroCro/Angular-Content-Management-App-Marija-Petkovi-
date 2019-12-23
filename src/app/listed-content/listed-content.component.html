@@ -1,20 +1,6 @@
 <mat-accordion>
   <div *ngFor="let item of firebaseService.data$ | async">
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{item.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          Size: {{item.text.length}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>{{item.text}}</p>
-      <mat-action-row>
-        <button mat-button color="warn">Remove</button>
-        <button routerLink="/edit" routerLinkActive="active" mat-button color="accent">Edit</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+    <app-item-content
+      [itemModel]="item"></app-item-content>
   </div>
 </mat-accordion>

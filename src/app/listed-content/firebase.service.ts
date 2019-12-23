@@ -10,7 +10,6 @@ import {ItemModel} from './item.model';
 })
 export class FirebaseService {
 
-  collection: AngularFirestoreCollection<ItemModel>;
   data$: Observable<ItemModel[]>;
 
   constructor(

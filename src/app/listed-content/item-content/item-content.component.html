@@ -1,0 +1,19 @@
+<mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{itemModel.title}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Size: {{itemModel.text.length}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>{{itemModel.text}}</p>
+  <mat-action-row>
+    <button mat-button color="warn">Remove</button>
+    <button (click)="setEditMode()" mat-button color="accent">Edit</button>
+  </mat-action-row>
+  <app-edit-content
+    *ngIf="isEditMode"
+    [itemModel]="itemModel"></app-edit-content>
+</mat-expansion-panel>

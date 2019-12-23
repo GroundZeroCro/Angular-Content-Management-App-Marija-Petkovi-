@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ListedContentComponent} from './listed-content/listed-content.component';
-import {EditContentComponent} from './edit-content/edit-content.component';
+import {EditContentComponent} from './listed-content/item-content/edit-content/edit-content.component';
 
 
 const routes: Routes = [

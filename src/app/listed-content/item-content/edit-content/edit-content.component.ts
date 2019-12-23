@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {ItemModel} from '../listed-content/item.model';
+import {ItemModel} from '../../item.model';
 
 @Component({
   selector: 'app-edit-content',

@@ -8,8 +8,6 @@ import {FirebaseService} from './firebase.service';
 })
 export class ListedContentComponent {
 
-  panelOpenState = false;
-
   constructor(public firebaseService: FirebaseService) {
   }
 }
