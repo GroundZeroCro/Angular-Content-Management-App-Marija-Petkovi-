@@ -1,24 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ItemModel} from '../item.model';
+import {Component, Input} from '@angular/core';
 import {PrayerModel} from './prayer.model';
+import ItemContent from '../shared/ItemContent';
 
 @Component({
   selector: 'app-item-content-prayer',
   templateUrl: './item-content-prayer.component.html',
   styleUrls: ['./item-content-prayer.component.sass']
 })
-export class ItemContentPrayerComponent {
+export class ItemContentPrayerComponent extends ItemContent {
 
   @Input() prayerModel: PrayerModel;
-
-  panelOpenState = false;
-  isEditMode = false;
-
-  constructor() {
-    console.log('prayers');
-  }
-
-  changeEditMode() {
-    this.isEditMode = !this.isEditMode;
-  }
 }

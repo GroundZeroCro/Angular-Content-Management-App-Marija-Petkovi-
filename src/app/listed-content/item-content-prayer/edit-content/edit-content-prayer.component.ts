@@ -7,15 +7,12 @@ import {FirebaseService} from '../../firebase.service';
   templateUrl: './edit-content-prayer.component.html',
   styleUrls: ['./edit-content-prayer.component.sass']
 })
-export class EditContentPrayerComponent implements OnInit {
+export class EditContentPrayerComponent {
 
   @Input() itemModel: PrayerModel;
 
   constructor(private firebaseService: FirebaseService) {
     this.itemModel = new PrayerModel();
-  }
-
-  ngOnInit() {
   }
 
   onSubmit() {
