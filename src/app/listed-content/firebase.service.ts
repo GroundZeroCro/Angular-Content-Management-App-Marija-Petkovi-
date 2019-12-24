@@ -20,7 +20,7 @@ export class FirebaseService {
   ) {
     this.data$ = mainService.listedContentSubject.pipe(
       flatMap(value =>
-        this.firestore.collection(value !== '' ? value : LanguageType.CROATIAN + ItemType.PRAYERS).valueChanges() as Observable<ItemModel[]>
+        this.firestore.collection(value).valueChanges() as Observable<ItemModel[]>
       )
     );
   }

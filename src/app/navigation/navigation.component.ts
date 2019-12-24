@@ -27,7 +27,6 @@ export class NavigationComponent {
   }
 
   setContent() {
-    console.log(this.languageGroup.value + this.typeGroup.value);
     this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
   }
 }
