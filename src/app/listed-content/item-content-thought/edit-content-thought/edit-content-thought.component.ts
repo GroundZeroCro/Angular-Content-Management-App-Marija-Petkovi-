@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PrayerModel} from '../../item-content-prayer/prayer.model';
 import {ThoughtModel} from '../thought.model';
+import {FirebaseService} from '../../firebase.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -11,7 +13,7 @@ export class EditContentThoughtComponent implements OnInit {
 
   @Input() itemModel: ThoughtModel;
 
-  constructor() {
+  constructor(private firebaseService: FirebaseService) {
     this.itemModel = new ThoughtModel();
   }
 
@@ -20,5 +22,8 @@ export class EditContentThoughtComponent implements OnInit {
 
   onSubmit() {
     console.log(this.itemModel);
+    this.firebaseService.updateItem(this.itemModel).pipe(
+      take(1)
+    ).subscribe(value => console.log(value));
   }
 }
