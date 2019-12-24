@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {ItemModel} from '../../item.model';
 import {PrayerModel} from '../prayer.model';
+import {FirebaseService} from '../../firebase.service';
 
 @Component({
   selector: 'app-edit-content-prayer',
@@ -10,16 +9,17 @@ import {PrayerModel} from '../prayer.model';
 })
 export class EditContentPrayerComponent implements OnInit {
 
- @Input() itemModel: PrayerModel
+  @Input() itemModel: PrayerModel;
 
-  constructor() {
-   this.itemModel = new PrayerModel();
+  constructor(private firebaseService: FirebaseService) {
+    this.itemModel = new PrayerModel();
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.itemModel);
+    this.firebaseService.updateItem(this.itemModel)
+      .subscribe(value => console.log(value));
   }
 }

@@ -8,7 +8,7 @@
       Size: {{thoughtModel.text.length}}
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p  *ngIf="!isEditMode">{{thoughtModel.text}}</p>
+  <p *ngIf="!isEditMode">{{thoughtModel.text | textShortener}}</p>
   <mat-action-row>
     <button mat-button color="warn">Remove</button>
     <button (click)="changeEditMode()" mat-button color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>

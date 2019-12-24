@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatChipsModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule, MatRadioModule, MatSelectModule,
@@ -25,6 +25,7 @@ import {ItemContentPrayerComponent} from './listed-content/item-content-prayer/i
 import {EditContentPrayerComponent} from './listed-content/item-content-prayer/edit-content/edit-content-prayer.component';
 import { ItemContentThoughtComponent } from './listed-content/item-content-thought/item-content-thought.component';
 import { EditContentThoughtComponent } from './listed-content/item-content-thought/edit-content-thought/edit-content-thought.component';
+import { TextShortenerPipe } from './pipes/text-shortener.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditContentThoughtComponent } from './listed-content/item-content-thoug
     ItemContentPrayerComponent,
     ItemContentThoughtComponent,
     EditContentPrayerComponent,
-    EditContentThoughtComponent
+    EditContentThoughtComponent,
+    TextShortenerPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { EditContentThoughtComponent } from './listed-content/item-content-thoug
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

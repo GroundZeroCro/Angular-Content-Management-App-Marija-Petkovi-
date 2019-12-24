@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ThoughtModel} from '../thought.model';
 import {FirebaseService} from '../../firebase.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -17,8 +16,7 @@ export class EditContentThoughtComponent {
   }
 
   onSubmit() {
-    this.firebaseService.updateItem(this.itemModel).pipe(
-      take(1)
-    ).subscribe(value => console.log(value));
+    this.firebaseService.updateItem(this.itemModel)
+      .subscribe(value => console.log(value));
   }
 }

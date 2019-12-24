@@ -10,8 +10,6 @@
     </mat-form-field>
 
     <span class="app-spacer"></span>
-    {{languageGroup.value + typeGroup.value}}
-    <span class="app-spacer"></span>
 
     <mat-form-field>
       <mat-select #typeGroup="matSelect" value="{{prayersKeyValue}}">
@@ -22,3 +20,9 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-chip-list aria-label="Fish selection">
+  <mat-chip>
+    <mat-icon matChipAvatar>link</mat-icon>{{languageGroup.value + typeGroup.value}}</mat-chip>
+</mat-chip-list>
+

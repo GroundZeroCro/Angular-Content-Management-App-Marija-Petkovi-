@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {NavigationService} from '../navigation/navigation.service';
-import {flatMap, switchMap} from 'rxjs/operators';
+import {flatMap, switchMap, take} from 'rxjs/operators';
 import {ItemModel} from './item.model';
 import {PrayerModel} from './item-content-prayer/prayer.model';
 import {ThoughtModel} from './item-content-thought/thought.model';
@@ -27,6 +27,7 @@ export class FirebaseService {
 
   updateItem(item: PrayerModel | ThoughtModel): Observable<void> {
     return this.mainService.listedContentSubject.pipe(
+      take(1),
       switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.title).set(item))
     );
   }
