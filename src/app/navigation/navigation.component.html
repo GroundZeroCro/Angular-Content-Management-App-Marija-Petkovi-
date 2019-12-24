@@ -23,6 +23,10 @@
 
 <mat-chip-list aria-label="Fish selection">
   <mat-chip>
-    <mat-icon matChipAvatar>link</mat-icon>{{languageGroup.value + typeGroup.value}}</mat-chip>
+    <mat-icon matChipAvatar>link</mat-icon>
+    {{languageGroup.value + typeGroup.value}}</mat-chip>
+  <mat-chip>
+    <mat-icon matChipAvatar>format_line_spacing</mat-icon>
+    {{(mainService.currentListSize$ | async)}}</mat-chip>
 </mat-chip-list>
 

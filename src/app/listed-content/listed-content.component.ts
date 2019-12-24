@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FirebaseService} from './firebase.service';
 import {NavigationService} from '../navigation/navigation.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-listed-content',
@@ -9,6 +10,12 @@ import {NavigationService} from '../navigation/navigation.service';
 })
 export class ListedContentComponent {
 
-  constructor(public firebaseService: FirebaseService, public navigationService: NavigationService) {
+  constructor(
+    public firebaseService: FirebaseService,
+    public navigationService: NavigationService
+  ) {
+    navigationService.currentListSize$ = firebaseService.data$.pipe(
+      map(value => value.length)
+    );
   }
 }
