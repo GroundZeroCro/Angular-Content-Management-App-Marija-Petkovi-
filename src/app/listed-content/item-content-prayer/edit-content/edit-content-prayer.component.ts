@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ItemModel} from '../../item.model';
 
 @Component({
-  selector: 'app-edit-content',
-  templateUrl: './edit-content.component.html',
-  styleUrls: ['./edit-content.component.sass']
+  selector: 'app-edit-content-prayer',
+  templateUrl: './edit-content-prayer.component.html',
+  styleUrls: ['./edit-content-prayer.component.sass']
 })
-export class EditContentComponent implements OnInit {
+export class EditContentPrayerComponent implements OnInit {
 
  @Input() itemModel: ItemModel
 

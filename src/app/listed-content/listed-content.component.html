@@ -1,6 +1,6 @@
 <mat-accordion>
   <div *ngFor="let item of firebaseService.data$ | async">
-    <app-item-content
-      [itemModel]="item"></app-item-content>
+    <app-item-content-prayer
+            [prayerModel]="item"></app-item-content-prayer>
   </div>
 </mat-accordion>

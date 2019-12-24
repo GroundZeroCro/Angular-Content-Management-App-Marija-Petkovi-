@@ -21,16 +21,20 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {firebaseConfig} from '../environments/enviroment-firebase';
 import { NavigationComponent } from './navigation/navigation.component';
-import { EditContentComponent } from './listed-content/item-content/edit-content/edit-content.component';
-import { ItemContentComponent } from './listed-content/item-content/item-content.component';
+import {ItemContentPrayerComponent} from './listed-content/item-content-prayer/item-content-prayer.component';
+import {EditContentPrayerComponent} from './listed-content/item-content-prayer/edit-content/edit-content-prayer.component';
+import { ItemContentThoughtComponent } from './listed-content/item-content-thought/item-content-thought.component';
+import { EditContentThoughtComponent } from './listed-content/item-content-thought/edit-content-thought/edit-content-thought.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListedContentComponent,
     NavigationComponent,
-    EditContentComponent,
-    ItemContentComponent
+    ItemContentPrayerComponent,
+    ItemContentThoughtComponent,
+    EditContentPrayerComponent,
+    EditContentThoughtComponent
   ],
   imports: [
     BrowserModule,

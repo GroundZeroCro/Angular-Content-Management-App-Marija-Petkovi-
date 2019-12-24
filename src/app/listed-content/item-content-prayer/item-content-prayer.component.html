@@ -1,0 +1,19 @@
+<mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title *ngIf="!isEditMode">
+      {{prayerModel.title}}
+    </mat-panel-title>
+    <mat-panel-description *ngIf="!isEditMode">
+      Size: {{prayerModel.text.length}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p  *ngIf="!isEditMode">{{prayerModel.text}}</p>
+  <mat-action-row>
+    <button mat-button color="warn">Remove</button>
+    <button (click)="changeEditMode()" mat-button color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>
+  </mat-action-row>
+  <app-edit-content-prayer
+    *ngIf="isEditMode"
+    [itemModel]="prayerModel"></app-edit-content-prayer>
+</mat-expansion-panel>
