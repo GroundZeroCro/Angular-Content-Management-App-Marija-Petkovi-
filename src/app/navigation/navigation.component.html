@@ -1,16 +1,24 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <mat-button-toggle-group #languageGroup="matButtonToggleGroup" value="{{croatianKeyValue}}">
-      <mat-button-toggle value="{{croatianKeyValue}}" (click)="setContent()">Croatian</mat-button-toggle>
-      <mat-button-toggle value="{{italianKeyValue}}" (click)="setContent()">Italian</mat-button-toggle>
-      <mat-button-toggle value="{{spanishKeyValue}}" (click)="setContent()">Spanish</mat-button-toggle>
-    </mat-button-toggle-group>
+
+    <mat-form-field>
+      <mat-select #languageGroup="matSelect" value="{{croatianKeyValue}}">
+        <mat-option value="{{croatianKeyValue}}" (click)="setContent()">Croatian</mat-option>
+        <mat-option value="{{italianKeyValue}}" (click)="setContent()">Italian</mat-option>
+        <mat-option value="{{spanishKeyValue}}" (click)="setContent()">Spanish</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <span class="app-spacer"></span>
     {{languageGroup.value + typeGroup.value}}
     <span class="app-spacer"></span>
-    <mat-button-toggle-group #typeGroup="matButtonToggleGroup" value="{{prayersKeyValue}}">
-      <mat-button-toggle value="{{prayersKeyValue}}" (click)="setContent()">Prayers</mat-button-toggle>
-      <mat-button-toggle value="{{thoughtsKeyValue}}" (click)="setContent()">Thoughts</mat-button-toggle>
-    </mat-button-toggle-group>
+
+    <mat-form-field>
+      <mat-select #typeGroup="matSelect" value="{{prayersKeyValue}}">
+        <mat-option value="{{prayersKeyValue}}" (click)="setContent()">Prayers</mat-option>
+        <mat-option value="{{thoughtsKeyValue}}" (click)="setContent()">Thoughts</mat-option>
+      </mat-select>
+    </mat-form-field>
+
   </mat-toolbar-row>
 </mat-toolbar>
