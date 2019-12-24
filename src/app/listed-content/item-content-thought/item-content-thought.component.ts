@@ -15,6 +15,7 @@ export class ItemContentThoughtComponent {
   isEditMode = false;
 
   constructor() {
+    console.log('TGOUGHTS');
   }
 
   changeEditMode() {

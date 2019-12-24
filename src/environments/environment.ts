@@ -4,11 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase_croatian_key_prefix: 'hr-',
-  firebase_italian_key_prefix: 'it-',
-  firebase_spanish_key_prefix: 'es-',
-  firebase_prayers_key_suffix: 'prayers',
-  firebase_thoughts_key_suffix: 'thoughts',
 };
 /*
  * For easier debugging in development mode, you can import the following file

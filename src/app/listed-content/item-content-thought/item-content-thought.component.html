@@ -13,7 +13,7 @@
     <button mat-button color="warn">Remove</button>
     <button (click)="changeEditMode()" mat-button color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>
   </mat-action-row>
-  <app-edit-content-prayer
+  <app-edit-content-thought
     *ngIf="isEditMode"
-    [itemModel]="thoughtModel"></app-edit-content-prayer>
+    [itemModel]="thoughtModel"></app-edit-content-thought>
 </mat-expansion-panel>

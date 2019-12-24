@@ -15,6 +15,7 @@ export class ItemContentPrayerComponent {
   isEditMode = false;
 
   constructor() {
+    console.log('prayers');
   }
 
   changeEditMode() {

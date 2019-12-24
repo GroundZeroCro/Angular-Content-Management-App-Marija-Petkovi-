@@ -2,6 +2,9 @@ import {Component, ViewChild} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {MatButtonToggleGroup} from '@angular/material';
 import {NavigationService} from './navigation.service';
+import {ItemModel} from '../listed-content/item.model';
+import {ItemType} from './item-type';
+import {LanguageType} from './language-type';
 
 @Component({
   selector: 'app-navigation',
@@ -10,12 +13,12 @@ import {NavigationService} from './navigation.service';
 })
 export class NavigationComponent {
 
-  croatianKeyValue = environment.firebase_croatian_key_prefix;
-  italianKeyValue = environment.firebase_italian_key_prefix;
-  spanishKeyValue = environment.firebase_spanish_key_prefix;
+  croatianKeyValue = LanguageType.CROATIAN;
+  italianKeyValue = LanguageType.ITALIAN;
+  spanishKeyValue = LanguageType.SPANISH;
 
-  prayersKeyValue = environment.firebase_prayers_key_suffix;
-  thoughtsKeyValue = environment.firebase_thoughts_key_suffix;
+  prayersKeyValue = ItemType.PRAYERS;
+  thoughtsKeyValue = ItemType.THOUGHTS;
 
   @ViewChild('languageGroup', {static: false}) languageGroup: MatButtonToggleGroup;
   @ViewChild('typeGroup', {static: false}) typeGroup: MatButtonToggleGroup;

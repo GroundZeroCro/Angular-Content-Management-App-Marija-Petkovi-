@@ -1,6 +1,18 @@
 <mat-accordion>
   <div *ngFor="let item of firebaseService.data$ | async">
-    <app-item-content-prayer
-            [prayerModel]="item"></app-item-content-prayer>
+    <ng-container
+      [ngTemplateOutlet]="(navigationService.listedContentSubject | async).includes('prayers') ? prayers : thoughts"
+      [ngTemplateOutletContext]={item:item}>
+    </ng-container>
   </div>
 </mat-accordion>
+
+<ng-template #prayers let-item='item'>
+  <app-item-content-prayer
+    [prayerModel]=item></app-item-content-prayer>
+</ng-template>
+
+<ng-template #thoughts let-item='item'>
+  <app-item-content-thought
+    [thoughtModel]=item></app-item-content-thought>
+</ng-template>

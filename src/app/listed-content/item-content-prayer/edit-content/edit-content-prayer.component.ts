@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ItemModel} from '../../item.model';
+import {PrayerModel} from '../prayer.model';
 
 @Component({
   selector: 'app-edit-content-prayer',
@@ -9,10 +10,10 @@ import {ItemModel} from '../../item.model';
 })
 export class EditContentPrayerComponent implements OnInit {
 
- @Input() itemModel: ItemModel
+ @Input() itemModel: PrayerModel
 
   constructor() {
-   this.itemModel = new ItemModel()
+   this.itemModel = new PrayerModel();
   }
 
   ngOnInit() {

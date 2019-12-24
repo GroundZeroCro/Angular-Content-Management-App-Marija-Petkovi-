@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FirebaseService} from './firebase.service';
+import {NavigationService} from '../navigation/navigation.service';
 
 @Component({
   selector: 'app-listed-content',
@@ -8,6 +9,6 @@ import {FirebaseService} from './firebase.service';
 })
 export class ListedContentComponent {
 
-  constructor(public firebaseService: FirebaseService) {
+  constructor(public firebaseService: FirebaseService, public navigationService: NavigationService) {
   }
 }

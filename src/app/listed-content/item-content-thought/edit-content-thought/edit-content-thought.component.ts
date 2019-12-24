@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PrayerModel} from '../../item-content-prayer/prayer.model';
+import {ThoughtModel} from '../thought.model';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditContentThoughtComponent implements OnInit {
 
-  constructor() { }
+  @Input() itemModel: ThoughtModel;
+
+  constructor() {
+    this.itemModel = new ThoughtModel();
+  }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log(this.itemModel);
+  }
 }
