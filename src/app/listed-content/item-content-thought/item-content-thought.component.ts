@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PrayerModel} from '../item-content-prayer/prayer.model';
+import {Component, Input} from '@angular/core';
 import {ThoughtModel} from './thought.model';
 
 @Component({
@@ -13,10 +12,6 @@ export class ItemContentThoughtComponent {
 
   panelOpenState = false;
   isEditMode = false;
-
-  constructor() {
-    console.log('TGOUGHTS');
-  }
 
   changeEditMode() {
     this.isEditMode = !this.isEditMode;

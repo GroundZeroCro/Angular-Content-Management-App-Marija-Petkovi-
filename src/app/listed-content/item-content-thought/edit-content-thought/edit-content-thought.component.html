@@ -1,19 +1,20 @@
 <div class="list-item-container">
 
   <mat-form-field>
-    <input matInput placeholder="Title" required [(ngModel)]="itemModel.title">
+    <input type="text" matInput placeholder="Title" required [(ngModel)]="itemModel.title">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Text" required [(ngModel)]="itemModel.text">
+    <textarea cdkTextareaAutosize="true" cdkAutosizeMaxRows="20" class="content-textarea" type="text" matInput
+              placeholder="Text" required [(ngModel)]="itemModel.text"></textarea>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
+    <input type="text" matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Image" required [(ngModel)]="itemModel.image">
+    <input type="text" matInput placeholder="Image" required [(ngModel)]="itemModel.image">
   </mat-form-field>
 
   <form
