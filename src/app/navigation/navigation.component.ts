@@ -3,6 +3,7 @@ import {MatButtonToggleGroup} from '@angular/material';
 import {NavigationService} from './navigation.service';
 import {ItemType} from './item-type';
 import {LanguageType} from './language-type';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -23,7 +24,7 @@ export class NavigationComponent {
   @ViewChild('languageGroup', {static: false}) languageGroup: MatButtonToggleGroup;
   @ViewChild('typeGroup', {static: false}) typeGroup: MatButtonToggleGroup;
 
-  constructor(private mainService: NavigationService) {
+  constructor(private mainService: NavigationService, public router: Router) {
   }
 
   setContent() {
@@ -36,5 +37,9 @@ export class NavigationComponent {
 
   onSearchInput(inputString: string) {
     this.mainService.searchedKeyword$.next(inputString);
+  }
+
+  addNewItem() {
+
   }
 }

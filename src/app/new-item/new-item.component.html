@@ -1,0 +1,11 @@
+<ng-container
+  [ngTemplateOutlet]="(navigationService.listedContentSubject | async).includes('prayers') ? prayers : thoughts">
+</ng-container>
+
+<ng-template #prayers>
+  <app-edit-content-prayer></app-edit-content-prayer>
+</ng-template>
+
+<ng-template #thoughts>
+  <app-edit-content-thought></app-edit-content-thought>
+</ng-template>

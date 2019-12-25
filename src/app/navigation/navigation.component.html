@@ -22,27 +22,35 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-chip-list aria-label="Fish selection">
-  <mat-chip>
-    <mat-icon matChipAvatar>link</mat-icon>
-    {{languageGroup.value + typeGroup.value}}</mat-chip>
-  <mat-chip>
-    <mat-icon matChipAvatar>format_line_spacing</mat-icon>
-    {{(mainService.currentListSize$ | async)}}</mat-chip>
-</mat-chip-list>
-
 <ng-template #searchModeOn>
   <mat-form-field class="app-spacer search-input" floatLabel="never">
     <input matInput placeholder="Search" (input)="onSearchInput(searchInput.value)" #searchInput>
   </mat-form-field>
-  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="switchSearchMode()">
+  <button
+    mat-icon-button
+    (click)="switchSearchMode()">
     <mat-icon>cancel</mat-icon>
   </button>
 </ng-template>
 
 <ng-template #searchModeOff>
   <div class="app-spacer"></div>
-  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="switchSearchMode()">
+  <button
+    mat-icon-button
+    [routerLink]="['new']"
+    *ngIf="router.url === '/'">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    [routerLink]="['/']"
+    *ngIf="router.url !== '/'">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    (click)="switchSearchMode()"
+    *ngIf="router.url === '/'">
     <mat-icon>search</mat-icon>
   </button>
 </ng-template>

@@ -1,3 +1,12 @@
+<mat-chip-list aria-label="Fish selection">
+  <mat-chip>
+    <mat-icon matChipAvatar>link</mat-icon>
+    {{navigationService.listedContentSubject | async}}</mat-chip>
+  <mat-chip>
+    <mat-icon matChipAvatar>format_line_spacing</mat-icon>
+    {{(navigationService.currentListSize$ | async)}}</mat-chip>
+</mat-chip-list>
+
 <mat-accordion>
   <div *ngFor="let item of firebaseService.filteredData$ | async">
     <ng-container
