@@ -26,7 +26,7 @@ export class FirebaseService {
     );
 
     this.filteredData$ = combineLatest(this.data$, this.navigationService.searchedKeyword$).pipe(
-      map(([data, term]) => data.filter(item => item.title.includes(term)))
+      map(([data, term]) => data.filter(item => item.title.toLowerCase().includes(term.toLowerCase())))
     );
   }
 
