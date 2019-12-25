@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {ThoughtModel} from '../thought.model';
 import {FirebaseService} from '../../firebase.service';
+import {MatSnackBar} from '@angular/material';
+import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -11,12 +13,17 @@ export class EditContentThoughtComponent {
 
   @Input() itemModel: ThoughtModel;
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
     this.itemModel = new ThoughtModel();
   }
 
   onSubmit() {
     this.firebaseService.updateItem(this.itemModel)
-      .subscribe(value => console.log(value));
+      .subscribe(_ => {
+        this.snackBar.open(successfulSubmitSnackbarMessage, 'Close', {
+          duration: 2000,
+        });
+        this.itemModel = new ThoughtModel();
+      });
   }
 }

@@ -10,7 +10,7 @@ import {
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBarModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -61,7 +61,8 @@ import { NewItemComponent } from './new-item/new-item.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
