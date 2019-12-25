@@ -1,5 +1,5 @@
 <mat-accordion>
-  <div *ngFor="let item of firebaseService.getFirebaseDataFiltered() | async">
+  <div *ngFor="let item of firebaseService.filteredData$ | async">
     <ng-container
       [ngTemplateOutlet]="(navigationService.listedContentSubject | async).includes('prayers') ? prayers : thoughts"
       [ngTemplateOutletContext]={item:item}>

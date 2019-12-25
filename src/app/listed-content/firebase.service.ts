@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {combineLatest, merge, Observable} from 'rxjs';
+import {combineLatest, Observable} from 'rxjs';
 import {NavigationService} from '../navigation/navigation.service';
-import {flatMap, switchMap, take} from 'rxjs/operators';
+import {flatMap, map, switchMap, take} from 'rxjs/operators';
 import {ItemModel} from './item.model';
 import {PrayerModel} from './item-content-prayer/prayer.model';
 import {ThoughtModel} from './item-content-thought/thought.model';
@@ -13,6 +13,7 @@ import {ThoughtModel} from './item-content-thought/thought.model';
 export class FirebaseService {
   // collectionKey is dynamically changed
   data$: Observable<ItemModel[]>;
+  filteredData$: Observable<ItemModel[]>;
 
   constructor(
     private firestore: AngularFirestore,
@@ -23,10 +24,10 @@ export class FirebaseService {
         this.firestore.collection(collectionKey).valueChanges() as Observable<ItemModel[]>
       )
     );
-  }
 
-  getFirebaseDataFiltered() {
-    return combineLatest(this.data$, this.navigationService.searchedKeyword$);
+    this.filteredData$ = combineLatest(this.data$, this.navigationService.searchedKeyword$).pipe(
+      map(([data, term]) => data.filter(item => item.title.includes(term)))
+    );
   }
 
   updateItem(item: PrayerModel | ThoughtModel): Observable<void> {
