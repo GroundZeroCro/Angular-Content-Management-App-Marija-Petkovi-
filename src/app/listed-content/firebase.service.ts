@@ -33,7 +33,7 @@ export class FirebaseService {
   updateItem(item: PrayerModel | ThoughtModel): Observable<void> {
     return this.navigationService.listedContentSubject.pipe(
       take(1),
-      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.title).set(item))
+      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.title).set(JSON.parse(JSON.stringify(item))))
     );
   }
 }

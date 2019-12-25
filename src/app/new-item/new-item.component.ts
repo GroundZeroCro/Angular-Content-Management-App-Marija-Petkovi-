@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {NavigationService} from '../navigation/navigation.service';
 
 @Component({
@@ -6,11 +6,8 @@ import {NavigationService} from '../navigation/navigation.service';
   templateUrl: './new-item.component.html',
   styleUrls: ['./new-item.component.sass']
 })
-export class NewItemComponent implements OnInit {
+export class NewItemComponent {
 
-  constructor(public navigationService: NavigationService) { }
-
-  ngOnInit() {
+  constructor(public navigationService: NavigationService) {
   }
-
 }
