@@ -1,8 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {environment} from '../../environments/environment';
 import {MatButtonToggleGroup} from '@angular/material';
 import {NavigationService} from './navigation.service';
-import {ItemModel} from '../listed-content/item.model';
 import {ItemType} from './item-type';
 import {LanguageType} from './language-type';
 
@@ -12,6 +10,8 @@ import {LanguageType} from './language-type';
   styleUrls: ['./navigation.component.sass']
 })
 export class NavigationComponent {
+
+  isSearchMode = false;
 
   croatianKeyValue = LanguageType.CROATIAN;
   italianKeyValue = LanguageType.ITALIAN;
@@ -28,5 +28,9 @@ export class NavigationComponent {
 
   setContent() {
     this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
+  }
+
+  switchSearchMode() {
+    this.isSearchMode = !this.isSearchMode;
   }
 }
