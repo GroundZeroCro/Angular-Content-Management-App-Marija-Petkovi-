@@ -33,4 +33,8 @@ export class NavigationComponent {
   switchSearchMode() {
     this.isSearchMode = !this.isSearchMode;
   }
+
+  onSearchInput(inputString: string) {
+    this.mainService.searchedKeyword$.next(inputString);
+  }
 }

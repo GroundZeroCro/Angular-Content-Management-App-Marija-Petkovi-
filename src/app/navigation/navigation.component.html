@@ -33,7 +33,7 @@
 
 <ng-template #searchModeOn>
   <mat-form-field class="app-spacer search-input" floatLabel="never">
-    <input matInput placeholder="Search">
+    <input matInput placeholder="Search" (input)="onSearchInput(searchInput.value)" #searchInput>
   </mat-form-field>
   <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="switchSearchMode()">
     <mat-icon>cancel</mat-icon>

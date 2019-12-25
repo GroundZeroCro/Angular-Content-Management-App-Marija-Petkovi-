@@ -9,4 +9,5 @@ import {ItemType} from './item-type';
 export class NavigationService {
   listedContentSubject = new BehaviorSubject(LanguageType.CROATIAN + ItemType.PRAYERS);
   currentListSize$ = new Observable<number>();
+  searchedKeyword$ = new BehaviorSubject('');
 }
