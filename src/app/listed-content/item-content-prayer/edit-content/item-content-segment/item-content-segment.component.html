@@ -15,5 +15,6 @@
   </mat-action-row>
   <app-edit-content-segment
     *ngIf="isEditMode"
-    [itemModel]="segmentedModel"></app-edit-content-segment>
+    [itemModel]="segmentedModel"
+    (updateSegmentedItemEvent)="updateSegmentedItem($event)"></app-edit-content-segment>
 </mat-expansion-panel>

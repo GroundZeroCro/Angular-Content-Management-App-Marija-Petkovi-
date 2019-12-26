@@ -15,4 +15,9 @@ export class ItemContentSegmentComponent extends ItemContent {
     super();
     console.log(this.segmentedModel);
   }
+
+  updateSegmentedItem($event: SegmentedModel) {
+    this.segmentedModel = $event;
+    this.changeEditMode();
+  }
 }

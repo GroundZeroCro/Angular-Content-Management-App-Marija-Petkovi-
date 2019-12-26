@@ -1,7 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FirebaseService} from '../../../../firebase.service';
 import {MatSnackBar} from '@angular/material';
 import {SegmentedModel} from '../../../segmented.model';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-content-segment',
@@ -11,12 +12,17 @@ import {SegmentedModel} from '../../../segmented.model';
 export class EditContentSegmentComponent {
 
   @Input() itemModel: SegmentedModel;
+  @Output() updateSegmentedItemEvent = new EventEmitter();
 
   constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
     this.itemModel = new SegmentedModel();
   }
 
-  onSubmit() {
-    // TODO update list
+  onUpdateSegmentedItem(segmentedForm: NgForm) {
+    if (segmentedForm.valid) {
+      this.updateSegmentedItemEvent.emit(this.itemModel);
+    } else {
+      console.log('Segmented form not valid');
+    }
   }
 }
