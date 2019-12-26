@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import ItemContent from '../../../shared/ItemContent';
 import {SegmentedModel} from '../../segmented.model';
 
@@ -10,14 +10,14 @@ import {SegmentedModel} from '../../segmented.model';
 export class ItemContentSegmentComponent extends ItemContent {
 
   @Input() segmentedModel: SegmentedModel;
-
-  constructor() {
-    super();
-    console.log(this.segmentedModel);
-  }
+  @Output() removeSegmentedItemEvent = new EventEmitter();
 
   updateSegmentedItem($event: SegmentedModel) {
     this.segmentedModel = $event;
     this.changeEditMode();
+  }
+
+  removeSegmentedItem($event: SegmentedModel) {
+    this.removeSegmentedItemEvent.emit($event);
   }
 }

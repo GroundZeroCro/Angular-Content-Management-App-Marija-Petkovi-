@@ -8,13 +8,15 @@
       Size: {{segmentedModel.text.length}}
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p  *ngIf="!isEditMode">{{segmentedModel.text | textShortener}}</p>
+  <p *ngIf="!isEditMode">{{segmentedModel.text | textShortener}}</p>
   <mat-action-row>
     <button mat-button color="warn">Remove</button>
-    <button type="button" (click)="changeEditMode()" mat-button color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>
+    <button type="button" (click)="changeEditMode()" mat-button
+            color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>
   </mat-action-row>
   <app-edit-content-segment
     *ngIf="isEditMode"
     [itemModel]="segmentedModel"
-    (updateSegmentedItemEvent)="updateSegmentedItem($event)"></app-edit-content-segment>
+    (updateSegmentedItemEvent)="updateSegmentedItem($event)"
+    (removeSegmentedItemEvent)="removeSegmentedItem($event)"></app-edit-content-segment>
 </mat-expansion-panel>

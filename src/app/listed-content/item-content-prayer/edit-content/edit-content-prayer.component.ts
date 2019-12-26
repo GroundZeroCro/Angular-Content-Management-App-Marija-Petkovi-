@@ -43,4 +43,11 @@ export class EditContentPrayerComponent {
     console.log(segmentedForm.controls.segmentedText.value);
     segmentedForm.resetForm();
   }
+
+  onRemoveSegmentedItem($event: SegmentedModel) {
+    this.itemModel.segmentedList = this.itemModel.segmentedList.filter(value => {
+      console.log(`Value: ${value.itemId}     ${$event.itemId}`);
+      return value.itemId !== $event.itemId;
+    });
+  }
 }

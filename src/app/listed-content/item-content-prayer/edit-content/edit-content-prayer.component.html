@@ -34,7 +34,8 @@
 
     <div *ngFor="let segmentedItem of itemModel.segmentedList">
       <app-item-content-segment
-        [segmentedModel]="segmentedItem"></app-item-content-segment>
+        [segmentedModel]="segmentedItem"
+        (removeSegmentedItemEvent)="onRemoveSegmentedItem($event)"></app-item-content-segment>
     </div>
 
     <form

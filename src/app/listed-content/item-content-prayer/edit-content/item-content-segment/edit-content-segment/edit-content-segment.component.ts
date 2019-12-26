@@ -13,6 +13,7 @@ export class EditContentSegmentComponent {
 
   @Input() itemModel: SegmentedModel;
   @Output() updateSegmentedItemEvent = new EventEmitter();
+  @Output() removeSegmentedItemEvent = new EventEmitter();
 
   constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
     this.itemModel = new SegmentedModel();
@@ -24,5 +25,9 @@ export class EditContentSegmentComponent {
     } else {
       console.log('Segmented form not valid');
     }
+  }
+
+  onRemoveSegmentedItem() {
+    this.removeSegmentedItemEvent.emit(this.itemModel);
   }
 }
