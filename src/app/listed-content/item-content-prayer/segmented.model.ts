@@ -6,5 +6,8 @@ export class SegmentedModel {
   itemId = '';
 
   constructor(title = '', text = '', itemId = UUID.UUID()) {
+    this.title = title;
+    this.text = text;
+    this.itemId = itemId;
   }
 }

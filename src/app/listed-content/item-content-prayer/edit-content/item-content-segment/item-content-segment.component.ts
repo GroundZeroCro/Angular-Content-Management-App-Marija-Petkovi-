@@ -10,4 +10,9 @@ import {SegmentedModel} from '../../segmented.model';
 export class ItemContentSegmentComponent extends ItemContent {
 
   @Input() segmentedModel: SegmentedModel;
+
+  constructor() {
+    super();
+    console.log(this.segmentedModel);
+  }
 }

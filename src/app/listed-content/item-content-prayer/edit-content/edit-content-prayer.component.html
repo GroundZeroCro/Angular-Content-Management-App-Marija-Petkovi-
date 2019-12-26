@@ -1,10 +1,13 @@
 <div class="list-item-container">
+  <form
+    #prayerForm="ngForm"
+    class="list-item-container"
+    (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Title" required name="prayerTitle" [(ngModel)]="itemModel.title">
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Title" required [(ngModel)]="itemModel.title">
-  </mat-form-field>
-
-  <mat-form-field>
+    <mat-form-field>
     <textarea
       cdkTextareaAutosize="true"
       cdkAutosizeMaxRows="20"
@@ -13,55 +16,53 @@
       matInput
       placeholder="Text"
       required
+      name="prayerText"
       [(ngModel)]="itemModel.text"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Type" required [(ngModel)]="itemModel.type">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
-  </mat-form-field>
-
-  <div *ngFor="let segmentedItem of itemModel.segmentedList">
-    <app-item-content-segment
-      [segmentedModel]="segmentedItem"></app-item-content-segment>
-  </div>
-
-  <form
-    #segmentedForm="ngForm"
-    class="list-item-container"
-    (ngSubmit)="addSegmentedToList(segmentedForm)">
-
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Segmented Title"
-        required
-        name="segmentedTitle"
-        ngModel>
     </mat-form-field>
 
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Segmented Text"
-        required
-        name="segmentedText"
-        ngModel>
+      <input matInput placeholder="Id" required name="prayerItemId" [(ngModel)]="itemModel.itemId">
     </mat-form-field>
 
-    <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
-  </form>
+    <mat-form-field>
+      <input matInput placeholder="Type" required name="prayerType" [(ngModel)]="itemModel.type">
+    </mat-form-field>
 
-  <form
-    class="list-item-container"
-    (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
+    </mat-form-field>
+
+    <div *ngFor="let segmentedItem of itemModel.segmentedList">
+      <app-item-content-segment
+        [segmentedModel]="segmentedItem"></app-item-content-segment>
+    </div>
+
+    <form
+      #segmentedForm="ngForm"
+      class="list-item-container"
+      (ngSubmit)="addSegmentedToList(segmentedForm)">
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Segmented Title"
+          required
+          name="segmentedTitle"
+          ngModel>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Segmented Text"
+          required
+          name="segmentedText"
+          ngModel>
+      </mat-form-field>
+
+      <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
+    </form>
+
     <button mat-raised-button color="primary" type="submit">Submit</button>
   </form>
 </div>

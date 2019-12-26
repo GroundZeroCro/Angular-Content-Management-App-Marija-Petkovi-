@@ -36,11 +36,11 @@ export class EditContentPrayerComponent {
         segmentedForm.controls.segmentedTitle.value,
         segmentedForm.controls.segmentedText.value
       ));
-      segmentedForm.resetForm();
     } else {
       console.log('Segmented form not valid');
     }
     console.log(segmentedForm.controls.segmentedTitle.value);
     console.log(segmentedForm.controls.segmentedText.value);
+    segmentedForm.resetForm();
   }
 }

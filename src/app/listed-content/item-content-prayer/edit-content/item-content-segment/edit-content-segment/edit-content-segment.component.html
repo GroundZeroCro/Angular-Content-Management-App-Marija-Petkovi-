@@ -1,0 +1,34 @@
+<form
+  #segmentedForm="ngForm"
+  class="list-item-container"
+  (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Segmented Title"
+      required
+      name="segmentedTitle"
+      [(ngModel)]="itemModel.title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Segmented Text"
+      required
+      name="segmentedText"
+      [(ngModel)]="itemModel.text">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Segmented ItemId"
+      required
+      name="segmentedItemId"
+      [(ngModel)]="itemModel.itemId">
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" type="submit">Edit Segmented Item</button>
+</form>

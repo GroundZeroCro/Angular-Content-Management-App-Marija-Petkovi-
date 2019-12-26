@@ -28,6 +28,7 @@ import { EditContentThoughtComponent } from './listed-content/item-content-thoug
 import { TextShortenerPipe } from './pipes/text-shortener.pipe';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ItemContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/item-content-segment.component';
+import { EditContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/edit-content-segment/edit-content-segment.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ItemContentSegmentComponent } from './listed-content/item-content-praye
     EditContentThoughtComponent,
     TextShortenerPipe,
     NewItemComponent,
-    ItemContentSegmentComponent
+    ItemContentSegmentComponent,
+    EditContentSegmentComponent
   ],
   imports: [
     BrowserModule,
