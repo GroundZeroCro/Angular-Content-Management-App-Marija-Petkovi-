@@ -1,6 +1,8 @@
-<ng-container
-  [ngTemplateOutlet]="(navigationService.listedContentSubject | async).includes('prayers') ? prayers : thoughts">
-</ng-container>
+<div class="new-item-container">
+  <ng-container
+    [ngTemplateOutlet]="(navigationService.listedContentSubject | async).includes('prayers') ? prayers : thoughts">
+  </ng-container>
+</div>
 
 <ng-template #prayers>
   <app-edit-content-prayer></app-edit-content-prayer>
