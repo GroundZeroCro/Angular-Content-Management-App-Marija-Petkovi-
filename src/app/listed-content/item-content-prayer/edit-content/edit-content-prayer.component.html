@@ -4,51 +4,38 @@
     <input matInput placeholder="Title" required [(ngModel)]="itemModel.title">
   </mat-form-field>
 
-  <ng-container [ngTemplateOutlet]="itemModel.type === 0 ? type0text : type1text "></ng-container>
+  <mat-form-field>
+    <textarea
+      cdkTextareaAutosize="true"
+      cdkAutosizeMaxRows="20"
+      class="content-textarea"
+      type="text"
+      matInput
+      placeholder="Text"
+      required
+      [(ngModel)]="itemModel.text"></textarea>
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
-    </mat-form-field>
+  <div *ngFor="let segmentedItem of itemModel.segmentedList">
+    <app-item-content-segment
+      [segmentedModel]="segmentedItem"></app-item-content-segment>
+  </div>
 
-    <mat-form-field>
-      <input matInput placeholder="Type" required [(ngModel)]="itemModel.type">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Type" required [(ngModel)]="itemModel.type">
+  </mat-form-field>
 
-    <form
-      class="list-item-container"
-      (ngSubmit)="onSubmit()">
-      <button mat-raised-button color="primary" type="submit">Submit</button>
-    </form>
+  <mat-form-field>
+    <input matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
+  </mat-form-field>
+
+  <form
+    class="list-item-container"
+    (ngSubmit)="onSubmit()">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
 </div>
-
-<ng-template #type0text>
-  <mat-form-field>
-    <textarea
-      cdkTextareaAutosize="true"
-      cdkAutosizeMaxRows="20"
-      class="content-textarea"
-      type="text"
-      matInput
-      placeholder="Text"
-      required
-      [(ngModel)]="itemModel.text"></textarea>
-  </mat-form-field>
-</ng-template>
-
-<ng-template #type1text>
-  <mat-form-field>
-    <textarea
-      cdkTextareaAutosize="true"
-      cdkAutosizeMaxRows="20"
-      class="content-textarea"
-      type="text"
-      matInput
-      placeholder="Text"
-      required
-      [(ngModel)]="itemModel.text"></textarea>
-  </mat-form-field>
-</ng-template>
