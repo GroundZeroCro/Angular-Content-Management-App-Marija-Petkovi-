@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatCheckboxModule, MatChipsModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
@@ -64,7 +64,8 @@ import { ItemContentSegmentComponent } from './listed-content/item-content-praye
     ReactiveFormsModule,
     MatSelectModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

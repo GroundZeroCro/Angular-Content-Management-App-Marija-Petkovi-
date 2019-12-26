@@ -16,11 +16,6 @@
       [(ngModel)]="itemModel.text"></textarea>
   </mat-form-field>
 
-  <div *ngFor="let segmentedItem of itemModel.segmentedList">
-    <app-item-content-segment
-      [segmentedModel]="segmentedItem"></app-item-content-segment>
-  </div>
-
   <mat-form-field>
     <input matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
   </mat-form-field>
@@ -32,6 +27,37 @@
   <mat-form-field>
     <input matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
   </mat-form-field>
+
+  <div *ngFor="let segmentedItem of itemModel.segmentedList">
+    <app-item-content-segment
+      [segmentedModel]="segmentedItem"></app-item-content-segment>
+  </div>
+
+  <form
+    #segmentedForm="ngForm"
+    class="list-item-container"
+    (ngSubmit)="addSegmentedToList(segmentedForm)">
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Segmented Title"
+        required
+        name="segmentedTitle"
+        ngModel>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Segmented Text"
+        required
+        name="segmentedText"
+        ngModel>
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
+  </form>
 
   <form
     class="list-item-container"

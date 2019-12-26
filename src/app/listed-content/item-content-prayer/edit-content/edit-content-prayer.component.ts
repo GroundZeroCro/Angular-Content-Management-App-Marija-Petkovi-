@@ -1,8 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {PrayerModel} from '../prayer.model';
 import {FirebaseService} from '../../firebase.service';
 import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
 import {MatSnackBar} from '@angular/material';
+import {SegmentedModel} from '../segmented.model';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-content-prayer',
@@ -25,5 +27,20 @@ export class EditContentPrayerComponent {
           duration: 2000,
         });
       });
+  }
+
+  addSegmentedToList(segmentedForm: NgForm) {
+    console.log(segmentedForm.valid);
+    if (segmentedForm.valid) {
+      this.itemModel.segmentedList.push(new SegmentedModel(
+        segmentedForm.controls.segmentedTitle.value,
+        segmentedForm.controls.segmentedText.value
+      ));
+      segmentedForm.resetForm();
+    } else {
+      console.log('Segmented form not valid');
+    }
+    console.log(segmentedForm.controls.segmentedTitle.value);
+    console.log(segmentedForm.controls.segmentedText.value);
   }
 }
