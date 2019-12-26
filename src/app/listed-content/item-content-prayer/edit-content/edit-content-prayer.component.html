@@ -20,17 +20,20 @@
       [(ngModel)]="itemModel.text"></textarea>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Id" required name="prayerItemId" [(ngModel)]="itemModel.itemId">
-    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" >
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Id" required name="prayerItemId" [(ngModel)]="itemModel.itemId">
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Type" required name="prayerType" [(ngModel)]="itemModel.type">
-    </mat-form-field>
+      <mat-form-field fxFlex="30">
+        <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
-    </mat-form-field>
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Type" required name="prayerType" [(ngModel)]="itemModel.type">
+      </mat-form-field>
+    </div>
+
 
     <div *ngFor="let segmentedItem of itemModel.segmentedList">
       <app-item-content-segment

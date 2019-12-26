@@ -29,6 +29,7 @@ import { TextShortenerPipe } from './pipes/text-shortener.pipe';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ItemContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/item-content-segment.component';
 import { EditContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/edit-content-segment/edit-content-segment.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { EditContentSegmentComponent } from './listed-content/item-content-praye
     MatSelectModule,
     MatChipsModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
