@@ -3,6 +3,7 @@ import {ThoughtModel} from '../thought.model';
 import {FirebaseService} from '../../firebase.service';
 import {MatSnackBar} from '@angular/material';
 import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -15,6 +16,7 @@ export class EditContentThoughtComponent {
 
   constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
     this.itemModel = new ThoughtModel();
+    this.itemModel.itemId = UUID.UUID();
   }
 
   onSubmit() {

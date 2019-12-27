@@ -5,6 +5,7 @@ import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
 import {MatSelect, MatSnackBar} from '@angular/material';
 import {SegmentedModel} from '../segmented.model';
 import {NgForm} from '@angular/forms';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-edit-content-prayer',
@@ -17,6 +18,7 @@ export class EditContentPrayerComponent {
 
   constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
     this.itemModel = new PrayerModel();
+    this.itemModel.itemId = UUID.UUID();
   }
 
   onSubmit() {
