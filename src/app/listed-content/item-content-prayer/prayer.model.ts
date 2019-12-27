@@ -3,6 +3,6 @@ import {SegmentedModel} from './segmented.model';
 
 export class PrayerModel extends ItemModel {
   tag = '';
-  type = 0;
+  type: number = 0;
   segmentedList: SegmentedModel[] = [];
 }
