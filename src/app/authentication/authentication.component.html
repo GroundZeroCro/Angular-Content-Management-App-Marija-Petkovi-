@@ -1,0 +1,20 @@
+<div class="auth-container" *ngIf="!(authenticationService.getUser() | async)">
+  <form
+    (ngSubmit)="doLogin()"
+    class="list-item-container"
+    style="max-width: 100%; max-height: 100vh">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" >
+
+      <mat-form-field class="max-width">
+        <input type="email" matInput placeholder="Email" required [(ngModel)]="email" name="email">
+      </mat-form-field>
+
+      <mat-form-field class="max-width">
+        <input type="password" matInput placeholder="Password" required [(ngModel)]="password" name="password">
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="warn" type="submit">Submit</button>
+  </form>
+
+</div>

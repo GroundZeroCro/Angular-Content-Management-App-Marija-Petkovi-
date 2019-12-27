@@ -30,6 +30,8 @@ import { NewItemComponent } from './new-item/new-item.component';
 import { ItemContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/item-content-segment.component';
 import { EditContentSegmentComponent } from './listed-content/item-content-prayer/edit-content/item-content-segment/edit-content-segment/edit-content-segment.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     TextShortenerPipe,
     NewItemComponent,
     ItemContentSegmentComponent,
-    EditContentSegmentComponent
+    EditContentSegmentComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatFormFieldModule,
     MatInputModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
