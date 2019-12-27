@@ -17,7 +17,7 @@ export class ItemContentSegmentComponent extends ItemContent {
     this.changeEditMode();
   }
 
-  removeSegmentedItem($event: SegmentedModel) {
-    this.removeSegmentedItemEvent.emit($event);
+  removeSegmentedItem() {
+    this.removeSegmentedItemEvent.emit(this.segmentedModel);
   }
 }
