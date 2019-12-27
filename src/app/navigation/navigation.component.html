@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="authenticationService.getUser() | async">
   <mat-toolbar-row>
 
     <mat-form-field>

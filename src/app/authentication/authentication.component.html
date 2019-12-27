@@ -1,20 +1,29 @@
-<div class="auth-container" *ngIf="!(authenticationService.getUser() | async)">
-  <form
-    (ngSubmit)="doLogin()"
-    class="list-item-container"
-    style="max-width: 100%; max-height: 100vh">
-    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" >
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-      <mat-form-field class="max-width">
-        <input type="email" matInput placeholder="Email" required [(ngModel)]="email" name="email">
-      </mat-form-field>
+  <mat-card class="box">
+    <mat-card-header>
+      <div class="login-icon-image">
+        <img src="../../assets/images/login.png">
+      </div>
+    </mat-card-header>
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
 
-      <mat-form-field class="max-width">
-        <input type="password" matInput placeholder="Password" required [(ngModel)]="password" name="password">
-      </mat-form-field>
-    </div>
+    <form class="example-form" (ngSubmit)="doLogin()">
+      <mat-card-content>
 
-    <button mat-raised-button color="warn" type="submit">Submit</button>
-  </form>
+        <mat-form-field class="max-width">
+          <input type="email" matInput placeholder="Email" required [(ngModel)]="email" name="email">
+        </mat-form-field>
+
+        <mat-form-field class="max-width">
+          <input type="password" matInput placeholder="Password" required [(ngModel)]="password" name="password">
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="btn-block">Log in</button>
+    </form>
+  </mat-card>
 
 </div>

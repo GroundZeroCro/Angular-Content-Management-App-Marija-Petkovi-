@@ -13,7 +13,7 @@ export class AuthenticationComponent {
   email: string;
   password: string;
 
-  constructor(public authenticationService: AuthenticationService, router: Router) {
+  constructor(public authenticationService: AuthenticationService, private router: Router) {
     this.authenticationService.getUser().pipe(
       take(1)
     ).subscribe(value => {
@@ -24,7 +24,7 @@ export class AuthenticationComponent {
   }
 
   doLogin() {
-    this.authenticationService.login(this.email, this.password).then(value => console.log('Successfully logged in!'));
+    this.authenticationService.login(this.email, this.password).then(() => this.router.navigate(['']));
   }
 
   onLogout() {
