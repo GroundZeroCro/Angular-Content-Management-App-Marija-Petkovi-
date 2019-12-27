@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {PrayerModel} from '../prayer.model';
 import {FirebaseService} from '../../firebase.service';
 import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
-import {MatSnackBar} from '@angular/material';
+import {MatSelect, MatSnackBar} from '@angular/material';
 import {SegmentedModel} from '../segmented.model';
 import {NgForm} from '@angular/forms';
 
@@ -49,5 +49,10 @@ export class EditContentPrayerComponent {
       console.log(`Value: ${value.itemId}     ${$event.itemId}`);
       return value.itemId !== $event.itemId;
     });
+  }
+
+  changePrayerType(prayerTypeSelect: MatSelect) {
+    console.log(prayerTypeSelect.value);
+    this.itemModel.type = prayerTypeSelect.value;
   }
 }

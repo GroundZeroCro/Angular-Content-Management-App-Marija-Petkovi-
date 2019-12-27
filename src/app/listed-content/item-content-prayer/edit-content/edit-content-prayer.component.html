@@ -29,8 +29,11 @@
         <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
       </mat-form-field>
 
-      <mat-form-field fxFlex>
-        <input type="number" matInput placeholder="Type" required name="prayerType" [(ngModel)]="itemModel.type">
+      <mat-form-field>
+        <mat-select value="{{itemModel.type}}" #prayerTypeSelect (selectionChange)="changePrayerType(prayerTypeSelect)">
+          <mat-option value="0">Single prayer</mat-option>
+          <mat-option value="1">Listed prayer</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
