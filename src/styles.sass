@@ -2,6 +2,10 @@
 @include mat-core()
 @import "sass/mat-expansion"
 @import "sass/mat-chip"
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime&display=swap')
+
+*
+  font-family: 'Courier Prime', monospace
 
 .app-spacer
   flex: 1 1 auto
@@ -10,5 +14,8 @@
   width: 100%
 
 body
-  background: mat-color($mat-grey, 900)
-
+  margin: 0
+  padding: 0
+  background: mat-color($mat-grey, 100)
+input, textarea
+  color: mat-color($mat-grey, 900) !important

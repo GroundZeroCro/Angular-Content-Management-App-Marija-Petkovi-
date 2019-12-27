@@ -29,7 +29,7 @@
         <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field fxFlex="20">
         <mat-select [value]="itemModel.type" #prayerTypeSelect (selectionChange)="changePrayerType(prayerTypeSelect)">
           <mat-option [value]="0">Single prayer</mat-option>
           <mat-option [value]="1">Listed prayer</mat-option>

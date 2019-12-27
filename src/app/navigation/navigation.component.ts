@@ -44,7 +44,8 @@ export class NavigationComponent {
     this.mainService.searchedKeyword$.next(inputString);
   }
 
-  addNewItem() {
-
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
