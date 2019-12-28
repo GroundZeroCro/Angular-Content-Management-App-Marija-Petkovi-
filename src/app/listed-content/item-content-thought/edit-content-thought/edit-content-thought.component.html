@@ -55,23 +55,23 @@
           placeholder="Id"
           required
           minlength="4"
-               [(ngModel)]="itemModel.itemId">
+          [(ngModel)]="itemModel.itemId">
       </mat-form-field>
       <div [hidden]="id.valid">
         <mat-icon color="primary">error</mat-icon>
       </div>
     </div>
   </form>
-    <mat-form-field>
-      <input
-        name="image"
-        type="text"
-        matInput
-        placeholder="Image"
-        required
-        [(ngModel)]="itemModel.image">
-    </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!thoughtForm.form.valid">Submit</button>
+  <mat-form-field>
+    <input
+      name="image"
+      type="text"
+      matInput
+      placeholder="Image"
+      required
+      [(ngModel)]="itemModel.image">
+  </mat-form-field>
 
+  <button mat-raised-button color="primary" type="submit" [disabled]="!thoughtForm.form.valid">Submit</button>
 </div>
