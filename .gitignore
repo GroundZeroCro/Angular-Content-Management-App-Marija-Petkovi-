@@ -47,3 +47,7 @@ Thumbs.db
 
 # Credentials
 enviroment-firebase.ts
+
+# Deployment
+.firebaserc
+.firebase
