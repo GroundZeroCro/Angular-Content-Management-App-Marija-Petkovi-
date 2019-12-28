@@ -43,4 +43,13 @@ export class FirebaseService {
       switchMap(collectionKey => this.firestore.collection(collectionKey).doc(itemDocTitle).delete())
     );
   }
+
+  doesItemExist(itemId: string): Observable<any> {
+    return this.navigationService.listedContentSubject.pipe(
+      take(1),
+      flatMap(collectionKey =>
+        this.firestore.collection(collectionKey).doc(itemId).valueChanges()
+      )
+    );
+  }
 }

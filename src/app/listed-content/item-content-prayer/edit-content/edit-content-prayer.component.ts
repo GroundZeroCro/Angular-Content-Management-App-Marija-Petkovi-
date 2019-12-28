@@ -2,10 +2,12 @@ import {Component, Input} from '@angular/core';
 import {PrayerModel} from '../prayer.model';
 import {FirebaseService} from '../../firebase.service';
 import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
-import {MatSelect, MatSnackBar} from '@angular/material';
+import {MatDialog, MatSelect, MatSnackBar} from '@angular/material';
 import {SegmentedModel} from '../segmented.model';
 import {NgForm} from '@angular/forms';
 import {UUID} from 'angular2-uuid';
+import {FirebaseMedium} from '../../firebase.medium';
+import {FirebaseCallback} from '../../firebase.callback';
 
 @Component({
   selector: 'app-edit-content-prayer',
@@ -15,20 +17,32 @@ import {UUID} from 'angular2-uuid';
 export class EditContentPrayerComponent {
 
   @Input() itemModel: PrayerModel;
+  private firebaseMedium: FirebaseMedium;
+  private readonly firebaseCallback: FirebaseCallback;
 
-  constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
-    this.itemModel = new PrayerModel();
-    this.itemModel.itemId = UUID.UUID();
+  constructor(
+    private firebaseService: FirebaseService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {
+    this.initiateModel();
+    this.firebaseMedium = new FirebaseMedium(firebaseService, dialog);
+    const fieldMemberHandle = this;
+
+    this.firebaseCallback = {
+      onSuccess() {
+        snackBar.open(successfulSubmitSnackbarMessage, 'Close', {
+          duration: 2000,
+        });
+        fieldMemberHandle.initiateModel();
+      },
+      onError() {
+      }
+    } as FirebaseCallback;
   }
 
   onSubmit() {
-    this.firebaseService.updateItem(this.itemModel)
-      .subscribe(_ => {
-        this.itemModel = new PrayerModel();
-        this.snackBar.open(successfulSubmitSnackbarMessage, 'Close', {
-          duration: 2000,
-        });
-      });
+    this.firebaseMedium.onSubmit(this.itemModel, this.firebaseCallback);
   }
 
   addSegmentedToList(segmentedForm: NgForm) {
@@ -41,20 +55,21 @@ export class EditContentPrayerComponent {
     } else {
       console.log('Segmented form not valid');
     }
-    console.log(segmentedForm.controls.segmentedTitle.value);
-    console.log(segmentedForm.controls.segmentedText.value);
     segmentedForm.resetForm();
   }
 
   onRemoveSegmentedItem($event: SegmentedModel) {
     this.itemModel.segmentedList = this.itemModel.segmentedList.filter(value => {
-      console.log(`Value: ${value.itemId}     ${$event.itemId}`);
       return value.itemId !== $event.itemId;
     });
   }
 
   changePrayerType(prayerTypeSelect: MatSelect) {
-    console.log(prayerTypeSelect.value);
     this.itemModel.type = prayerTypeSelect.value;
+  }
+
+  private initiateModel() {
+    this.itemModel = new PrayerModel();
+    this.itemModel.itemId = UUID.UUID();
   }
 }

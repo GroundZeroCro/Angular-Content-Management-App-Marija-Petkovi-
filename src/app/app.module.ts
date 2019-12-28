@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule,
-  MatCheckboxModule, MatChipsModule,
+  MatCheckboxModule, MatChipsModule, MatDialogModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule, MatRadioModule, MatSelectModule,
@@ -32,6 +32,7 @@ import { EditContentSegmentComponent } from './listed-content/item-content-praye
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { DecisionDialogComponent } from './listed-content/shared/decision-dialog/decision-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     NewItemComponent,
     ItemContentSegmentComponent,
     EditContentSegmentComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    DecisionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -73,8 +75,10 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     MatChipsModule,
     MatSnackBarModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule
   ],
+  entryComponents: [DecisionDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

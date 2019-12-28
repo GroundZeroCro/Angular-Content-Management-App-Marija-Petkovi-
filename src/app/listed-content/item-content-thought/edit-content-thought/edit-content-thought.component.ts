@@ -1,9 +1,11 @@
 import {Component, Input} from '@angular/core';
 import {ThoughtModel} from '../thought.model';
 import {FirebaseService} from '../../firebase.service';
-import {MatSnackBar} from '@angular/material';
-import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {UUID} from 'angular2-uuid';
+import {FirebaseCallback} from '../../firebase.callback';
+import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
+import {FirebaseMedium} from '../../firebase.medium';
 
 @Component({
   selector: 'app-edit-content-thought',
@@ -13,19 +15,36 @@ import {UUID} from 'angular2-uuid';
 export class EditContentThoughtComponent {
 
   @Input() itemModel: ThoughtModel;
+  private firebaseMedium: FirebaseMedium;
+  private readonly firebaseCallback: FirebaseCallback;
 
-  constructor(private firebaseService: FirebaseService, private snackBar: MatSnackBar) {
+  constructor(
+    private firebaseService: FirebaseService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {
+    this.initiateModel();
+    this.firebaseMedium = new FirebaseMedium(firebaseService, dialog);
+    const fieldMemberHandle = this;
+
+    this.firebaseCallback = {
+      onSuccess() {
+        snackBar.open(successfulSubmitSnackbarMessage, 'Close', {
+          duration: 2000,
+        });
+        fieldMemberHandle.initiateModel();
+      },
+      onError() {
+      }
+    } as FirebaseCallback;
+  }
+
+  private initiateModel() {
     this.itemModel = new ThoughtModel();
     this.itemModel.itemId = UUID.UUID();
   }
 
   onSubmit() {
-    this.firebaseService.updateItem(this.itemModel)
-      .subscribe(_ => {
-        this.snackBar.open(successfulSubmitSnackbarMessage, 'Close', {
-          duration: 2000,
-        });
-        this.itemModel = new ThoughtModel();
-      });
+    this.firebaseMedium.onSubmit(this.itemModel, this.firebaseCallback);
   }
 }
