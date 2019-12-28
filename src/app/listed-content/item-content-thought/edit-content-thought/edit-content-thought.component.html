@@ -1,10 +1,29 @@
 <div class="list-item-container">
+  <form
+    #thoughtForm="ngForm"
+    class="list-item-container"
+    (ngSubmit)="onSubmit()">
 
-  <mat-form-field>
-    <input type="text" matInput placeholder="Title" required [(ngModel)]="itemModel.title">
-  </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
+        <input
+          id="title"
+          name="title"
+          #title="ngModel"
+          type="text"
+          matInput
+          placeholder="Title"
+          required
+          minlength="4"
+          [(ngModel)]="itemModel.title">
+      </mat-form-field>
+      <div [hidden]="title.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
 
-  <mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
     <textarea
       cdkTextareaAutosize="true"
       cdkAutosizeMaxRows="20"
@@ -13,20 +32,46 @@
       matInput
       placeholder="Text"
       required
+      minlength="4"
+      id="text"
+      name="text"
+      #text="ngModel"
       [(ngModel)]="itemModel.text"></textarea>
-  </mat-form-field>
+      </mat-form-field>
+      <div [hidden]="text.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
 
-  <mat-form-field color="primary">
-    <input type="text" matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
-  </mat-form-field>
 
-  <mat-form-field>
-    <input type="text" matInput placeholder="Image" required [(ngModel)]="itemModel.image">
-  </mat-form-field>
-
-  <form
-    class="list-item-container"
-    (ngSubmit)="onSubmit()">
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
+        <input
+          id="id"
+          name="id"
+          #id="ngModel"
+          type="text"
+          matInput
+          placeholder="Id"
+          required
+          minlength="4"
+               [(ngModel)]="itemModel.itemId">
+      </mat-form-field>
+      <div [hidden]="id.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
   </form>
+    <mat-form-field>
+      <input
+        name="image"
+        type="text"
+        matInput
+        placeholder="Image"
+        required
+        [(ngModel)]="itemModel.image">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!thoughtForm.form.valid">Submit</button>
+
 </div>

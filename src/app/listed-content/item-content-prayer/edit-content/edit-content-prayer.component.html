@@ -3,31 +3,59 @@
     #prayerForm="ngForm"
     class="list-item-container"
     (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput placeholder="Title" required name="prayerTitle" [(ngModel)]="itemModel.title">
-    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
+        <input
+          id="title"
+          name="title"
+          minlength="4"
+          matInput
+          placeholder="Title"
+          class="form-control"
+          required
+          [(ngModel)]="itemModel.title"
+          #title="ngModel">
+      </mat-form-field>
+      <div [hidden]="title.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
 
-    <mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
     <textarea
       cdkTextareaAutosize="true"
       cdkAutosizeMaxRows="20"
       class="content-textarea"
       type="text"
+      id="text"
+      name="text"
+      minlength="4"
       matInput
       placeholder="Text"
       required
-      name="prayerText"
-      [(ngModel)]="itemModel.text"></textarea>
-    </mat-form-field>
-
-    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" >
-      <mat-form-field fxFlex="50">
-        <input matInput placeholder="Id" required name="prayerItemId" [(ngModel)]="itemModel.itemId">
+      [(ngModel)]="itemModel.text"
+      #text="ngModel"></textarea>
       </mat-form-field>
+      <div [hidden]="text.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+      <mat-form-field fxFlex="50">
+        <input id="id" name="id" #id="ngModel" matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
+      </mat-form-field>
+      <div [hidden]="id.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
 
       <mat-form-field fxFlex="30">
-        <input matInput placeholder="Tag" required name="prayerTag" [(ngModel)]="itemModel.tag">
+        <input #tag="ngModel" id="tag" name="tag" matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
       </mat-form-field>
+      <div [hidden]="tag.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
 
       <mat-form-field fxFlex="20">
         <mat-select [value]="itemModel.type" #prayerTypeSelect (selectionChange)="changePrayerType(prayerTypeSelect)">
@@ -37,39 +65,40 @@
       </mat-form-field>
     </div>
 
+    <div *ngIf="itemModel.type === 1">
+      <div *ngFor="let segmentedItem of itemModel.segmentedList">
+        <app-item-content-segment
+          [segmentedModel]="segmentedItem"
+          (removeSegmentedItemEvent)="onRemoveSegmentedItem($event)"></app-item-content-segment>
+      </div>
 
-    <div *ngFor="let segmentedItem of itemModel.segmentedList">
-      <app-item-content-segment
-        [segmentedModel]="segmentedItem"
-        (removeSegmentedItemEvent)="onRemoveSegmentedItem($event)"></app-item-content-segment>
+      <form
+        #segmentedForm="ngForm"
+        class="list-item-container"
+        (ngSubmit)="addSegmentedToList(segmentedForm)">
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Segmented Title"
+            required
+            name="segmentedTitle"
+            ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Segmented Text"
+            required
+            name="segmentedText"
+            ngModel>
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
+      </form>
     </div>
 
-    <form
-      #segmentedForm="ngForm"
-      class="list-item-container"
-      (ngSubmit)="addSegmentedToList(segmentedForm)">
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Segmented Title"
-          required
-          name="segmentedTitle"
-          ngModel>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Segmented Text"
-          required
-          name="segmentedText"
-          ngModel>
-      </mat-form-field>
-
-      <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
-    </form>
-
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!prayerForm.form.valid">Submit</button>
   </form>
 </div>
