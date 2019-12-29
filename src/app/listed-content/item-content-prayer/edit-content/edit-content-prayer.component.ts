@@ -70,6 +70,5 @@ export class EditContentPrayerComponent {
 
   private initiateModel() {
     this.itemModel = new PrayerModel();
-    this.itemModel.itemId = UUID.UUID();
   }
 }

@@ -41,7 +41,6 @@ export class EditContentThoughtComponent {
 
   private initiateModel() {
     this.itemModel = new ThoughtModel();
-    this.itemModel.itemId = UUID.UUID();
   }
 
   onSubmit() {

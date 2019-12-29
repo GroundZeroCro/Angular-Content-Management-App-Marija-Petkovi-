@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule,
-  MatCheckboxModule, MatChipsModule, MatDialogModule,
+  MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
   MatExpansionModule, MatFormFieldModule,
   MatIconModule, MatInputModule,
-  MatListModule, MatRadioModule, MatSelectModule,
+  MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
   MatSidenavModule, MatSnackBarModule,
   MatTableModule,
   MatToolbarModule
@@ -76,7 +76,9 @@ import { DecisionDialogComponent } from './listed-content/shared/decision-dialog
     FlexLayoutModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   entryComponents: [DecisionDialogComponent],
   providers: [],

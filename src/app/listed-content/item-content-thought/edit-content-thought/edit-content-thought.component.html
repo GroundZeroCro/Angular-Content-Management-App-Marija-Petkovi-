@@ -62,13 +62,33 @@
       </div>
     </div>
 
+
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field fxFlex>
+        <input
+          id="date"
+          name="date"
+          #date="ngModel"
+          matInput
+          required
+          minlength="4"
+          [matDatepicker]="picker"
+          placeholder="Choose a date"
+          [(ngModel)]="itemModel.date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div [hidden]="date.valid">
+        <mat-icon color="primary">error</mat-icon>
+      </div>
+    </div>
+
     <mat-form-field>
       <input
         name="image"
         type="text"
         matInput
         placeholder="Image"
-        required
         [(ngModel)]="itemModel.image">
     </mat-form-field>
 
