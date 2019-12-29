@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  firebaseCollectionSuffix: '-staging'
 };
 /*
  * For easier debugging in development mode, you can import the following file

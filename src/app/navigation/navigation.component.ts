@@ -33,7 +33,7 @@ export class NavigationComponent {
   }
 
   setContent() {
-    this.mainService.listedContentSubject.next(this.languageGroup.value + this.typeGroup.value);
+    this.mainService.setNewListedContent(this.languageGroup.value + this.typeGroup.value);
   }
 
   switchSearchMode() {
