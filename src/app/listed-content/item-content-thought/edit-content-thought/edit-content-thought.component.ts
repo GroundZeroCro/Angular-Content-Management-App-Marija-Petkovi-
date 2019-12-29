@@ -45,6 +45,7 @@ export class EditContentThoughtComponent {
   }
 
   onSubmit() {
+    console.log('Submitting');
     this.firebaseMedium.onSubmit(this.itemModel, this.firebaseCallback);
   }
 }

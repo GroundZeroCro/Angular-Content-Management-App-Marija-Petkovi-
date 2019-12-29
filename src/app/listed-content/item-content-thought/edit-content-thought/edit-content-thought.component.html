@@ -61,17 +61,17 @@
         <mat-icon color="primary">error</mat-icon>
       </div>
     </div>
+
+    <mat-form-field>
+      <input
+        name="image"
+        type="text"
+        matInput
+        placeholder="Image"
+        required
+        [(ngModel)]="itemModel.image">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!thoughtForm.form.valid">Submit</button>
   </form>
-
-  <mat-form-field>
-    <input
-      name="image"
-      type="text"
-      matInput
-      placeholder="Image"
-      required
-      [(ngModel)]="itemModel.image">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit" [disabled]="!thoughtForm.form.valid">Submit</button>
 </div>
