@@ -5,28 +5,26 @@ import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
 import {MatDialog, MatSelect, MatSnackBar} from '@angular/material';
 import {SegmentedModel} from '../segmented.model';
 import {NgForm} from '@angular/forms';
-import {UUID} from 'angular2-uuid';
-import {FirebaseMedium} from '../../firebase.medium';
 import {FirebaseCallback} from '../../firebase.callback';
+import {EditContentFirebase} from '../../shared/edit-content-firebase';
 
 @Component({
   selector: 'app-edit-content-prayer',
   templateUrl: './edit-content-prayer.component.html',
   styleUrls: ['./edit-content-prayer.component.sass']
 })
-export class EditContentPrayerComponent {
+export class EditContentPrayerComponent extends EditContentFirebase {
 
   @Input() itemModel: PrayerModel;
-  private firebaseMedium: FirebaseMedium;
   private readonly firebaseCallback: FirebaseCallback;
 
   constructor(
-    private firebaseService: FirebaseService,
+    firebaseService: FirebaseService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
+    dialog: MatDialog
   ) {
+    super(firebaseService, dialog);
     this.initiateModel();
-    this.firebaseMedium = new FirebaseMedium(firebaseService, dialog);
     const fieldMemberHandle = this;
 
     this.firebaseCallback = {
@@ -41,8 +39,8 @@ export class EditContentPrayerComponent {
     } as FirebaseCallback;
   }
 
-  onSubmit() {
-    this.firebaseMedium.onSubmit(this.itemModel, this.firebaseCallback);
+  onSubmitClick() {
+    this.onSubmit(this.itemModel, this.firebaseCallback);
   }
 
   addSegmentedToList(segmentedForm: NgForm) {

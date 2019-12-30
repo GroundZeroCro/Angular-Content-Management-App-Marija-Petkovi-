@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import ItemContent from '../../../shared/ItemContent';
+import ItemContent from '../../../shared/item-content';
 import {SegmentedModel} from '../../segmented.model';
 
 @Component({

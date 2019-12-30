@@ -2,29 +2,27 @@ import {Component, Input} from '@angular/core';
 import {ThoughtModel} from '../thought.model';
 import {FirebaseService} from '../../firebase.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
-import {UUID} from 'angular2-uuid';
 import {FirebaseCallback} from '../../firebase.callback';
 import {successfulSubmitSnackbarMessage} from '../../../utils/constants';
-import {FirebaseMedium} from '../../firebase.medium';
+import {EditContentFirebase} from '../../shared/edit-content-firebase';
 
 @Component({
   selector: 'app-edit-content-thought',
   templateUrl: './edit-content-thought.component.html',
   styleUrls: ['./edit-content-thought.component.sass']
 })
-export class EditContentThoughtComponent {
+export class EditContentThoughtComponent extends EditContentFirebase {
 
   @Input() itemModel: ThoughtModel;
-  private firebaseMedium: FirebaseMedium;
   private readonly firebaseCallback: FirebaseCallback;
 
   constructor(
-    private firebaseService: FirebaseService,
+    firebaseService: FirebaseService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
+    dialog: MatDialog
   ) {
+    super(firebaseService, dialog);
     this.initiateModel();
-    this.firebaseMedium = new FirebaseMedium(firebaseService, dialog);
     const fieldMemberHandle = this;
 
     this.firebaseCallback = {
@@ -43,8 +41,7 @@ export class EditContentThoughtComponent {
     this.itemModel = new ThoughtModel();
   }
 
-  onSubmit() {
-    console.log('Submitting');
-    this.firebaseMedium.onSubmit(this.itemModel, this.firebaseCallback);
+  onSubmitClick() {
+    this.onSubmit(this.itemModel, this.firebaseCallback);
   }
 }

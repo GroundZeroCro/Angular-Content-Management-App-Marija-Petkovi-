@@ -1,17 +1,15 @@
-import {FirebaseService} from './firebase.service';
+import {PrayerModel} from '../item-content-prayer/prayer.model';
+import {ThoughtModel} from '../item-content-thought/thought.model';
+import {FirebaseCallback} from '../firebase.callback';
 import {map, take} from 'rxjs/operators';
-import {DecisionDialogComponent} from './shared/decision-dialog/decision-dialog.component';
+import {DecisionDialogComponent} from './decision-dialog/decision-dialog.component';
+import {FirebaseService} from '../firebase.service';
 import {MatDialog} from '@angular/material';
-import {ThoughtModel} from './item-content-thought/thought.model';
-import {PrayerModel} from './item-content-prayer/prayer.model';
-import {FirebaseCallback} from './firebase.callback';
 
-export class FirebaseMedium {
+export class EditContentFirebase {
 
-  constructor(
-    private firebaseService: FirebaseService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private firebaseService: FirebaseService, private dialog: MatDialog) {
+  }
 
   onSubmit(itemModel: PrayerModel | ThoughtModel, firebaseCallback: FirebaseCallback) {
     this.firebaseService.doesItemExist(itemModel.title).pipe(
