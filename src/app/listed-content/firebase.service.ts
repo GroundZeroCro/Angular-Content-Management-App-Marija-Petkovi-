@@ -30,6 +30,14 @@ export class FirebaseService {
     );
   }
 
+  collectioN() {
+    return this.navigationService.listedContentSubject.pipe(
+      flatMap(collectionKey =>
+        this.firestore.collection(collectionKey).snapshotChanges().pipe(take(1))
+      )
+    );
+  }
+
   updateItem(item: PrayerModel | ThoughtModel): Observable<void> {
     return this.navigationService.listedContentSubject.pipe(
       take(1),

@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {FirebaseService} from './firebase.service';
 import {NavigationService} from '../navigation/navigation.service';
-import {map} from 'rxjs/operators';
+import {flatMap, map, take} from 'rxjs/operators';
+import {PrayerModel} from './item-content-prayer/prayer.model';
 
 @Component({
   selector: 'app-listed-content',
@@ -17,5 +18,13 @@ export class ListedContentComponent {
     navigationService.currentListSize$ = firebaseService.data$.pipe(
       map(value => value.length)
     );
+
+    this.firebaseService.collectioN().subscribe(value => value.map(value1 => {
+      const key = value1.payload.doc.id;
+      const item = value1.payload.doc.data() as PrayerModel;
+      item.docKey = key;
+      this.firebaseService.deleteItem(item.docKey).pipe(take(1)).subscribe();
+      this.firebaseService.updateItem(item).pipe(take(1)).subscribe();
+    }));
   }
 }

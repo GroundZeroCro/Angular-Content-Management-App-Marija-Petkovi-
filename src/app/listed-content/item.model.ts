@@ -4,4 +4,5 @@ export class ItemModel {
   title = '';
   text = '';
   itemId = UUID.UUID();
+  docKey = '';
 }
