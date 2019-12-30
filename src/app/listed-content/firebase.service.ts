@@ -33,14 +33,14 @@ export class FirebaseService {
   updateItem(item: PrayerModel | ThoughtModel): Observable<void> {
     return this.navigationService.listedContentSubject.pipe(
       take(1),
-      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.title).set(JSON.parse(JSON.stringify(item))))
+      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.itemId).set(JSON.parse(JSON.stringify(item))))
     );
   }
 
-  deleteItem(itemDocTitle: string): Observable<void> {
+  deleteItem(item: PrayerModel | ThoughtModel): Observable<void> {
     return this.navigationService.listedContentSubject.pipe(
       take(1),
-      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(itemDocTitle).delete())
+      switchMap(collectionKey => this.firestore.collection(collectionKey).doc(item.itemId).delete())
     );
   }
 

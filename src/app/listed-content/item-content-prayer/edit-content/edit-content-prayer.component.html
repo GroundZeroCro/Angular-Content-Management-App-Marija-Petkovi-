@@ -33,7 +33,7 @@
       minlength="4"
       matInput
       placeholder="Text"
-      required
+      [required]="itemModel.type === 0"
       [(ngModel)]="itemModel.text"
       #text="ngModel"></textarea>
       </mat-form-field>
