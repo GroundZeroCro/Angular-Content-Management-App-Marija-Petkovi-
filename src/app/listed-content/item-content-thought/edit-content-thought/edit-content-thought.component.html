@@ -49,17 +49,12 @@
         <input
           id="id"
           name="id"
-          #id="ngModel"
           type="text"
           matInput
           placeholder="Id"
-          required
-          minlength="4"
+          disabled
           [(ngModel)]="itemModel.itemId">
       </mat-form-field>
-      <div [hidden]="id.valid">
-        <mat-icon color="primary">error</mat-icon>
-      </div>
     </div>
 
 

@@ -44,14 +44,24 @@
 
     <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
       <mat-form-field fxFlex="50">
-        <input id="id" name="id" #id="ngModel" matInput placeholder="Id" required [(ngModel)]="itemModel.itemId">
+        <input
+          id="id"
+          name="id"
+          matInput
+          placeholder="Id"
+          disabled
+          [(ngModel)]="itemModel.itemId">
       </mat-form-field>
-      <div [hidden]="id.valid">
-        <mat-icon color="primary">error</mat-icon>
-      </div>
 
       <mat-form-field fxFlex="30">
-        <input #tag="ngModel" id="tag" name="tag" matInput placeholder="Tag" required [(ngModel)]="itemModel.tag">
+        <input
+          #tag="ngModel"
+          id="tag"
+          name="tag"
+          matInput
+          placeholder="Tag"
+          required
+          [(ngModel)]="itemModel.tag">
       </mat-form-field>
       <div [hidden]="tag.valid">
         <mat-icon color="primary">error</mat-icon>
