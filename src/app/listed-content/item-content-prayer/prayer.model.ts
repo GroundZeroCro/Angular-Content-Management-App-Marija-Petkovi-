@@ -5,5 +5,5 @@ export class PrayerModel extends ItemModel {
   tag = '';
   type = 0;
   segmentedList: SegmentedModel[] = [];
-  musicLink = '';
+  musicUrl = '';
 }
