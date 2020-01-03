@@ -75,6 +75,15 @@
       </mat-form-field>
     </div>
 
+    <mat-form-field>
+      <input
+        name="musicLink"
+        type="text"
+        matInput
+        placeholder="Music URL"
+        [(ngModel)]="itemModel.musicLink">
+    </mat-form-field>
+
     <div *ngIf="itemModel.type === 1">
       <div *ngFor="let segmentedItem of itemModel.segmentedList">
         <app-item-content-segment

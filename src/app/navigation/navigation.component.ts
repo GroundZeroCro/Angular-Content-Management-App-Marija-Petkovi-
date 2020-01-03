@@ -37,6 +37,9 @@ export class NavigationComponent {
   }
 
   switchSearchMode() {
+    if (this.isSearchMode) {
+      this.mainService.searchedKeyword$.next('');
+    }
     this.isSearchMode = !this.isSearchMode;
   }
 
