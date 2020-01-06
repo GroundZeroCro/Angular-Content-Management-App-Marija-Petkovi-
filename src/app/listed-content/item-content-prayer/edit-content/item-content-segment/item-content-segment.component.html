@@ -10,7 +10,7 @@
   </mat-expansion-panel-header>
   <p *ngIf="!isEditMode">{{segmentedModel.text | textShortener}}</p>
   <mat-action-row>
-    <button mat-button color="warn" (click)="removeSegmentedItem()">Remove</button>
+    <button type="button" mat-button color="warn" (click)="removeSegmentedItem()">Remove Segment</button>
     <button type="button" (click)="changeEditMode()" mat-button
             color="accent">{{isEditMode ? "Cancel" : "Edit"}}</button>
   </mat-action-row>
