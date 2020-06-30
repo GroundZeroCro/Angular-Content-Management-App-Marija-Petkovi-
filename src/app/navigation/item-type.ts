@@ -2,6 +2,6 @@
  * Value is firebase collections suffix
  */
 export enum ItemType {
-  PRAYERS= 'molitve',
-  THOUGHTS = 'misli'
+  PRAYERS= 'prayers',
+  THOUGHTS = 'thoughts'
 }
