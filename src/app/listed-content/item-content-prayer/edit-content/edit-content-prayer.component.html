@@ -105,27 +105,18 @@
             ngModel>
         </mat-form-field>
 
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-          <mat-form-field fxFlex>
-            <textarea
-              cdkTextareaAutosize="true"
-              cdkAutosizeMaxRows="20"
-              class="content-textarea"
-              type="text"
-              id="segmentedText"
-              name="segmentedText"
-              minlength="4"
-              matInput
-              placeholder="Segmented Text"
-              [required]="itemModel.type === 0"
-              ngModel
-              #segmentedText="ngModel"></textarea>
-          </mat-form-field>
-          <div [hidden]="segmentedText.valid">
-            <mat-icon color="primary">error</mat-icon>
-          </div>
-        </div>
-
+        <mat-form-field>
+           <textarea
+             cdkTextareaAutosize="true"
+             cdkAutosizeMaxRows="20"
+             class="content-textarea"
+             type="text"
+             matInput
+             placeholder="Segmented Text"
+             required
+             name="segmentedText"
+             ngModel></textarea>
+        </mat-form-field>
 
         <button mat-raised-button color="warn" type="submit">Add Segmented Item</button>
       </form>
